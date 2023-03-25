@@ -13,7 +13,8 @@
         "next.config.js": false,
         ".gitignore": false,
         "package-lock.json": true,
-        ".vscode": true
+        ".vscode": true,
+        "package.json": false
     },
     "explorerExclude.backup": {}
 }

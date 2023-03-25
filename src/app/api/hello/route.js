@@ -1,3 +1,4 @@
+//CRUD
 export async function GET(request) {
-  return new Response('Hello, Next.js!')
+  return new Response(JSON.stringify({ nome: "Olá" }))
 }
