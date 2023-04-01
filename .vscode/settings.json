@@ -9,7 +9,7 @@
         ".next": true,
         "node_modules": true,
         ".eslintrc.json": true,
-        "jsconfig.json": true,
+        "jsconfig.json": false,
         "next.config.js": false,
         ".gitignore": false,
         "package-lock.json": true,
