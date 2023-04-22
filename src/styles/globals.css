@@ -95,7 +95,7 @@ tfoot td {
     text-align: right;
 }
 
-form {
+.form {
     display: flex;
     align-items: center;
     justify-content: center;

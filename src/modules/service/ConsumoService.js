@@ -64,4 +64,23 @@ const handleRemove = async (id) => {
     return result;
 }
 
-export { handleInsert, handleGetAll, handleUpdate, handleRemove }
+const acceptedMethods = {
+    POST: handleInsert,
+    PUT: handleUpdate,
+    DELETE: handleRemove,
+    GET: handleGetAll
+}
+
+const handleRequest = async (reqParams) => {
+    if (acceptedMethods[reqParams.method] !== undefined) {
+        let requestMetod = acceptedMethods[reqParams.method]
+        return await requestMetod(reqParams)
+    } else {
+        return {
+            status: 404,
+            data: {}
+        }
+    }
+}
+
+export { handleRequest }

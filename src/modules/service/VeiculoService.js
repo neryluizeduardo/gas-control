@@ -7,7 +7,7 @@ const handleInsert = async (veiculo) => {
     }
 
     try {
-        result.data = await insert(veiculo)
+        result.data = await insert(veiculo.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -39,7 +39,7 @@ const handleUpdate = async (veiculo) => {
     }
 
     try {
-        result.data = await update(veiculo)
+        result.data = await update(veiculo.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -64,4 +64,23 @@ const handleRemove = async (id) => {
     return result;
 }
 
-export { handleInsert, handleGetAll, handleUpdate, handleRemove }
+const acceptedMethods = {
+    POST: handleInsert,
+    PUT: handleUpdate,
+    DELETE: handleRemove,
+    GET: handleGetAll
+}
+
+const handleRequest = async (reqParams) => {
+    if (acceptedMethods[reqParams.method] !== undefined) {
+        let requestMetod = acceptedMethods[reqParams.method]
+        return await requestMetod(reqParams)
+    } else {
+        return {
+            status: 404,
+            data: {}
+        }
+    }
+}
+
+export { handleRequest }
