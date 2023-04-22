@@ -4,7 +4,7 @@ const getVeiculos = async () => {
     const response = await fetch('http://localhost:3000/api/veiculos', {
         next: { revalidate: 5 },
         method: "GET",
-        cache: "no-cache",
+        cache: "no-store",
         headers: {
             "Content-Type": "application/json"
         }
@@ -14,7 +14,7 @@ const getVeiculos = async () => {
 }
 
 export default async function VeiculosTable() {
-    const veiculos = await getVeiculos();
+    var veiculos = await getVeiculos();
 
     return (
         <>

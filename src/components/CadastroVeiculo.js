@@ -1,31 +1,34 @@
 "use client";
 
-import { useState, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
+import VeiculosTable from './VeiculosTable';
 
-export default function CadastroVeiculo({ children }) {
+const novoVeiculo = async (e, descricao, placa) => {
+    e.preventDefault();
+
+    const veiculo = {
+        descricao,
+        placa
+    }
+
+    await fetch('http://localhost:3000/api/veiculos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(veiculo)
+    })
+}
+
+
+export default function CadastroVeiculo() {
     const [descricao, setDescricao] = useState('');
     const [placa, setPlaca] = useState('');
 
-    const cadastrarNovo = async (e) => {
-        e.preventDefault();
-
-        const veiculo = {
-            descricao,
-            placa
-        }
-
-        console.log(JSON.stringify(veiculo))
-
-        const response = await fetch('http://localhost:3000/api/veiculos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(veiculo)
-        })
-
-        const data = await response.json();
-        console.log(data)
+    const cadastrarNovoVeiculo = async (e) => {
+        await novoVeiculo(e, descricao, placa);
+        setDescricao('');
+        setPlaca('');
     }
 
     return (
@@ -33,7 +36,7 @@ export default function CadastroVeiculo({ children }) {
             <div className="container">
                 <div className="card">
                     <div className="card-content">
-                        <form onSubmit={cadastrarNovo}>
+                        <form onSubmit={cadastrarNovoVeiculo}>
                             <div className="form-group">
                                 <label htmlFor="descricao">Descrição:</label>
                                 <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" id="descricao" name="descricao" placeholder="Digite a descrição" />
@@ -50,7 +53,7 @@ export default function CadastroVeiculo({ children }) {
                     </div>
                 </div>
                 <Suspense fallback={<div>Carregando...</div>}>
-                    {children}
+                    <VeiculosTable />
                 </Suspense>
             </div>
         </>
