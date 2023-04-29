@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box
+}
+
 html,
 body {
     background-color: #f1f1f1;
@@ -36,27 +40,6 @@ body {
 .card-actions {
     display: flex;
     align-items: center;
-}
-
-.select-button,
-.delete-button {
-    background-color: #e2e8f0;
-    border: none;
-    width: 2rem;
-    height: 2rem;
-    margin-left: 0.5rem;
-}
-
-.select-button::before {
-    content: "\2713";
-    font-size: 12px;
-    color: #718096;
-}
-
-.delete-button::before {
-    content: "\2715";
-    font-size: 12px;
-    color: #718096;
 }
 
 .table {
@@ -114,34 +97,20 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"],
-button {
+input[type="text"] {
     flex-grow: 1;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: auto;
-    /* definir o tamanho automático */
-    margin-left: 5px;
-    /* adicionar espaçamento */
+.button-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-button:hover {
-    background-color: #3e8e41;
-}
-
-.delete-btn {
-    background-color: #f44336;
-}
-
-.delete-btn:hover {
-    background-color: #cc2b27;
+.btn {
+    flex: 1;
+    margin-bottom: 10px;
 }

@@ -1,13 +1,13 @@
 import { insert, getAll, update, remove } from "@/modules/data/VeiculoDAO.js"
 
-const handleInsert = async (veiculo) => {
+const handleInsert = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
     try {
-        result.data = await insert(veiculo.data)
+        result.data = await insert(params.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -32,14 +32,14 @@ const handleGetAll = async () => {
     return result;
 }
 
-const handleUpdate = async (veiculo) => {
+const handleUpdate = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
     try {
-        result.data = await update(veiculo.data)
+        result.data = await update(params.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -48,14 +48,14 @@ const handleUpdate = async (veiculo) => {
     return result;
 }
 
-const handleRemove = async (id) => {
+const handleRemove = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
     try {
-        result.data = await remove(id)
+        result.data = await remove(params.query.id)
     } catch (error) {
         result.status = 500
         result.data = error.message
