@@ -93,7 +93,7 @@ export default function Veiculos() {
     const [excluirBtn, setExcluirBtn] = useState(true)
 
     const { mutate } = useSWRConfig()
-    const { data, error } = useSWR('/api/veiculos', fetcher)
+    const { data, error } = useSWR('/api/veiculos', fetcher, { refreshInterval: 100 })
 
     if (error) return <div>Failed to Load</div>
 

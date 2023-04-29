@@ -54,8 +54,10 @@ const handleRemove = async (params) => {
         data: {}
     }
 
+    let ID = parseInt(params.query.id)
+
     try {
-        result.data = await remove(params.query.id)
+        result.data = await remove(ID)
     } catch (error) {
         result.status = 500
         result.data = error.message
