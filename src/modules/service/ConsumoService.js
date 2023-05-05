@@ -1,13 +1,13 @@
 import { insert, getAll, update, remove } from "@/modules/data/ConsumoDAO.js"
 
-const handleInsert = async (consumo) => {
+const handleInsert = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
     try {
-        result.data = await insert(consumo)
+        result.data = await insert(params.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -32,14 +32,14 @@ const handleGetAll = async () => {
     return result;
 }
 
-const handleUpdate = async (consumo) => {
+const handleUpdate = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
     try {
-        result.data = await update(consumo)
+        result.data = await update(params.data)
     } catch (error) {
         result.status = 500
         result.data = error.message
@@ -48,14 +48,16 @@ const handleUpdate = async (consumo) => {
     return result;
 }
 
-const handleRemove = async (id) => {
+const handleRemove = async (params) => {
     const result = {
         status: 200,
         data: {}
     }
 
+    let ID = parseInt(params.query.id)
+
     try {
-        result.data = await remove(id)
+        result.data = await remove(ID)
     } catch (error) {
         result.status = 500
         result.data = error.message

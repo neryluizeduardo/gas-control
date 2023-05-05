@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import useSWR, { mutate, useSWRConfig } from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
