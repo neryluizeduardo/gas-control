@@ -18,8 +18,8 @@ model Consumo {
   id            Int      @id @default(autoincrement())
   data          DateTime
   odometro      Int
-  quantidade    Decimal  @db.Decimal(10, 0)
-  valorUnitario Decimal  @db.Decimal(10, 0)
-  total         Decimal  @db.Decimal(10, 0)
+  quantidade    Decimal  @db.Decimal(10, 2)
+  valorUnitario Decimal  @db.Decimal(10, 2)
+  total         Decimal  @db.Decimal(10, 2)
   veiculoId     Int
 }

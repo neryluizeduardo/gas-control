@@ -115,12 +115,12 @@ export default function Veiculos() {
                     <div className='form'>
                         <div className="form-group">
                             <label htmlFor="descricao">Descrição:</label>
-                            <input required value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" id="descricao" name="descricao" placeholder="Digite a descrição" />
+                            <input className='input' required value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" id="descricao" name="descricao" placeholder="Digite a descrição" />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="placa">Placa:</label>
-                            <input required value={placa} onChange={(e) => setPlaca(e.target.value)} type="text" id="placa" name="placa" placeholder="Digite a placa" />
+                            <input className='input' required value={placa} onChange={(e) => setPlaca(e.target.value)} type="text" id="placa" name="placa" placeholder="Digite a placa" />
                         </div>
 
                         <div className='button-list'>
