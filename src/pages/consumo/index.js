@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr'
 import dayjs from 'dayjs';
+import Toolbar from '@/components/Toolbar';
 
 dayjs.locale('pt-br')
 
@@ -124,6 +125,9 @@ export default function Consumo() {
     }
 
     return (<>
+
+        <Toolbar />
+
         <div className='container'>
 
             <div className="button-container">
@@ -146,7 +150,7 @@ export default function Consumo() {
                 <div className="right-buttons">
                     {
                         excluirBtn &&
-                        <button className='btn-red' disabled={salvarBtn} type="button" onClick={(e) => UIActions.excluir({
+                        <button className='btn-red' type="button" onClick={(e) => UIActions.excluir({
                             event: e,
                             consumo: objSelecionado,
                             clean: clean,

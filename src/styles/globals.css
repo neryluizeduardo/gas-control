@@ -6,6 +6,7 @@ html,
 body {
     background-color: #f1f1f1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
 }
 
 .container {
@@ -151,4 +152,46 @@ label {
 .btn-blue {
     background-color: #0a81f0 !important;
     color: #fff;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 10px 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title :hover {
+    color: #d1d1d1 !important;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0062cc;
+}
+
+.homeLink {
+    color: #FFFFFF;
+    text-decoration: none;
 }

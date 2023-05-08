@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr'
+import Toolbar from '@/components/Toolbar';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -109,6 +110,9 @@ export default function Veiculos() {
     }
 
     return (<>
+
+        <Toolbar />
+
         <div className="container">
             <div className="card">
                 <div className="card-content">
