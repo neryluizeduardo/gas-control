@@ -99,7 +99,7 @@ export default function Consumo() {
 
     const { mutate } = useSWRConfig()
     const { data, error } = useSWR('/api/consumo', fetcher, { refreshInterval: 100 })
-
+    
     if (error) return <div>Falha no carregamento</div>
 
     const clean = () => {
